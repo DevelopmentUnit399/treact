@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <div class="nav__container animate-container">
+        <container class="nav__container animate-container">
             <div class="row slide-right">
                 <div class="header__logo">
                     <img src="assets/logo.2c489fc453a1783cbadacf914efa3df6.svg" class="header__logo--img" alt="">
@@ -23,11 +23,11 @@
                         </li>
 
                         <li class="header__link">
-                            <a href="">Blog</a>
+                            <a href="" class="not-allowed">Blog</a>
                         </li>
 
                         <li class="header__link">
-                            <a href="">Pricing</a>
+                            <a href="#pricing">Pricing</a>
                         </li>
 
                         <li class="header__link">
@@ -43,11 +43,47 @@
                         </button>
                     </ul>
                 </div>
+
+                <button class="btn__menu" onclick="openMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-        </div>
+        </container>
     </header>
 
     <main>
+        <div class="menu__backdrop">
+                    <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+
+                    <ul class="menu__links">
+                        <li class="menu__list">
+                            <a href="#features" class="menu__link" onclick="closeMenu()">About</a>
+                        </li>
+
+                        <li class="menu__list">
+                            <a href="" class="menu__link not-allowed" onclick="closeMenu()">Blog</a>
+                        </li>
+
+                        <li class="menu__list">
+                            <a href="#pricing" class="menu__link" onclick="closeMenu()">Pricing</a>
+                        </li>
+
+                        <li class="menu__list">
+                            <a href="#get-started" class="menu__link" onclick="closeMenu()">Contact Us</a>
+                        </li>
+
+                        <li class="menu__list">
+                            <a href="" class="menu__link not-allowed" onclick="closeMenu()">Login</a>
+                        </li>
+
+                        <li class="menu__list">
+                            <a href="" class="menu__link not-allowed header__link header__link--main--mobile" onclick="closeMenu()">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+
         <div id="home" class="container animate-container">
             <div class="row home__row slide-left">
                 <div class="home__content">
@@ -436,4 +472,12 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(container);
     });
 });
+
+function openMenu() {
+    document.body.classList += " menu--open"
+}
+
+function closeMenu() {
+    document.body.classList.remove('menu--open')
+}
 </script>
